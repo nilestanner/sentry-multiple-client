@@ -17,7 +17,7 @@ const project2 = new Sentry.Hub(client2);
 
 // add any tags to each project
 project1.run((currentHub) => {
-  project1.configureScope((scope) => {
+  currentHub.configureScope((scope) => {
     scope.setTag('project', 1);
   });
 });
@@ -25,7 +25,7 @@ project1.run((currentHub) => {
 project1.captureMessage('hello world 1');
 
 project2.run((currentHub) => {
-  project2.configureScope((scope) => {
+  currentHub.configureScope((scope) => {
     scope.setTag('project', 2);
   });
 });
